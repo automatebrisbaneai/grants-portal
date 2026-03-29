@@ -1,0 +1,406 @@
+{
+  "lastUpdated": "2026-03-29",
+  "grants": [
+    {
+      "id": "gcbf",
+      "name": "Gambling Community Benefit Fund (GCBF)",
+      "provider": "Queensland Government — Dept of Justice and Attorney-General",
+      "type": "government",
+      "level": "state",
+      "amountMin": 500,
+      "amountMax": 35000,
+      "status": "open",
+      "closingDate": null,
+      "nextRound": "Multiple rounds per year — check portal for current dates",
+      "frequency": "Quarterly",
+      "url": "https://www.justice.qld.gov.au/initiatives/community-grants",
+      "eligibility": {
+        "whoCanApply": "Not-for-profit community organisations in Queensland, including incorporated sport and recreation clubs",
+        "requirements": [
+          "Not-for-profit community organisation",
+          "Incorporated association or similar legal structure",
+          "Operating in Queensland",
+          "Demonstrate community benefit"
+        ],
+        "croquetClubEligible": true,
+        "croquetNotes": "Individual QLD croquet clubs can and have successfully applied. Southport Croquet Club won $35,000 for a veranda. One of the best-fit grants for croquet clubs."
+      },
+      "whatItFunds": [
+        "Facility improvements and upgrades",
+        "Equipment purchases",
+        "Community projects with broader benefit",
+        "Capital works (verandas, clubhouse upgrades, etc.)"
+      ],
+      "whatItDoesNotFund": [
+        "Check current round guidelines for specific exclusions"
+      ],
+      "tips": [
+        "Start planning well before the application deadline — Southport's application took months of preparation.",
+        "Gather multiple quotes for any construction or purchase.",
+        "Show the project benefits more than just croquet players — community impact is key.",
+        "Find a dedicated grant writer in your club — one person who enjoys research and paperwork makes a big difference."
+      ],
+      "caseStudy": {
+        "club": "Southport Croquet Club",
+        "project": "New veranda construction",
+        "amount": 35000,
+        "contact": "Charlie Ernst (President)",
+        "lessons": [
+          "Start early and give yourself a long lead time",
+          "Gather quotes and document community impact thoroughly",
+          "Find one person good at applications and let them own it",
+          "Build council relationships alongside grant applications"
+        ]
+      },
+      "tags": ["club-eligible", "facilities", "equipment", "proven-for-croquet", "capital-works"]
+    },
+    {
+      "id": "aibf",
+      "name": "Active Industry Base Fund (AIBF)",
+      "provider": "Queensland Government — Dept of Sport, Racing and Olympic and Paralympic Games",
+      "type": "government",
+      "level": "state",
+      "amountMin": 5000,
+      "amountMax": 250000,
+      "status": "upcoming",
+      "closingDate": null,
+      "nextRound": "Current cycle ends 30 June 2026. Next round not yet announced — contact department to register interest.",
+      "frequency": "2–3 year funding cycles",
+      "url": "https://www.sport.qld.gov.au/sport/funding-programs/active-industry-base",
+      "eligibility": {
+        "whoCanApply": "State-level not-for-profit sporting organisations in Queensland",
+        "requirements": [
+          "Not-for-profit with a constitution",
+          "Activities statewide with affiliates in 3+ sport regions",
+          "Sound, audited financials",
+          "Functional management committee or board",
+          "No more than 1 outstanding annual report with OFT",
+          "Documented participation statistics",
+          "Strategic plans including player pathways"
+        ],
+        "croquetClubEligible": false,
+        "croquetNotes": "This is for CAQ (the state body), NOT individual clubs. CAQ meets the geographic footprint requirement with 41 clubs across Queensland."
+      },
+      "whatItFunds": [
+        "Organisational capability building",
+        "Governance and administration",
+        "Strategic planning and implementation",
+        "Technology systems",
+        "Workforce skills strategies",
+        "Athlete development and program delivery",
+        "Participation growth initiatives"
+      ],
+      "whatItDoesNotFund": [
+        "Physical infrastructure (separate programs like Games On! cover this)"
+      ],
+      "tips": [
+        "MANDATORY: Contact sportrecpartnership@dtis.qld.gov.au before any closing date to request application templates.",
+        "Email the department NOW to introduce CAQ and register for next round notifications.",
+        "Gender Equity in Sports Governance targets must be met by July 2029 — plan accordingly.",
+        "Cost your planned activities specifically and justify the amount you request."
+      ],
+      "caseStudy": null,
+      "tags": ["state-body-only", "administration", "competitive", "multi-year"]
+    },
+    {
+      "id": "games-on",
+      "name": "Games On! Grassroots Infrastructure Program",
+      "provider": "Queensland Government — Dept of Sport, Racing and Olympic and Paralympic Games",
+      "type": "government",
+      "level": "state",
+      "amountMin": null,
+      "amountMax": null,
+      "status": "open",
+      "closingDate": null,
+      "nextRound": "Announced February 2026 — check department portal for current status",
+      "frequency": "One-off program ($30M total pool)",
+      "url": "https://www.sport.qld.gov.au/sport/funding-programs",
+      "eligibility": {
+        "whoCanApply": "Grassroots sport and recreation organisations in Queensland",
+        "requirements": [
+          "Grassroots sport or recreation organisation",
+          "Operating in Queensland",
+          "Check program guidelines for specific criteria"
+        ],
+        "croquetClubEligible": true,
+        "croquetNotes": "Likely eligible — croquet is a grassroots sport. Clubs needing court upgrades, lighting, or clubhouse improvements should investigate."
+      },
+      "whatItFunds": [
+        "Physical infrastructure for grassroots sport",
+        "Facility upgrades and improvements",
+        "Court surfaces, lighting, clubhouse works"
+      ],
+      "whatItDoesNotFund": [
+        "Administrative or operational costs (AIBF covers that)"
+      ],
+      "tips": [
+        "This is specifically for physical infrastructure, not administration.",
+        "$30 million is a significant pool — worth pursuing.",
+        "Check eligibility guidelines on the department portal as soon as possible."
+      ],
+      "caseStudy": null,
+      "tags": ["club-eligible", "infrastructure", "facilities", "new-program"]
+    },
+    {
+      "id": "local-council",
+      "name": "Local Council Community Grants",
+      "provider": "Various Queensland Local Councils",
+      "type": "government",
+      "level": "local",
+      "amountMin": null,
+      "amountMax": null,
+      "status": "open",
+      "closingDate": null,
+      "nextRound": "Varies by council — most run 1–2 rounds per year",
+      "frequency": "Annually or biannually (varies by council)",
+      "url": null,
+      "eligibility": {
+        "whoCanApply": "Community organisations within the council's local government area",
+        "requirements": [
+          "Must operate within the council area",
+          "Typically must be incorporated not-for-profit",
+          "Project must benefit the local community"
+        ],
+        "croquetClubEligible": true,
+        "croquetNotes": "Southport Croquet Club funded court lights through their local council. Each club should check their own council's website."
+      },
+      "whatItFunds": [
+        "Community projects and events",
+        "Facility improvements",
+        "Equipment",
+        "Programs benefiting the local community"
+      ],
+      "whatItDoesNotFund": [
+        "Varies by council"
+      ],
+      "tips": [
+        "Build a relationship with your council BEFORE you need funding.",
+        "Present your club as a community asset, not just a sport club.",
+        "Council funding is about timing, relationships, and being ready when opportunities arise.",
+        "Check your specific council's website for programs and deadlines."
+      ],
+      "caseStudy": {
+        "club": "Southport Croquet Club",
+        "project": "Court lighting",
+        "amount": null,
+        "contact": "Charlie Ernst (President)",
+        "lessons": [
+          "Built council relationship over several years",
+          "Was already on the radar as a well-run club",
+          "Council funding works differently from grants — it's about relationships"
+        ]
+      },
+      "tags": ["club-eligible", "facilities", "equipment", "relationship-based", "proven-for-croquet"]
+    },
+    {
+      "id": "asf",
+      "name": "Australian Sports Foundation (Tax-Deductible Donations)",
+      "provider": "Australian Sports Foundation",
+      "type": "government",
+      "level": "federal",
+      "amountMin": null,
+      "amountMax": null,
+      "status": "open",
+      "closingDate": null,
+      "nextRound": "Always open — register a project at any time",
+      "frequency": "Ongoing",
+      "url": "https://www.asf.org.au/",
+      "eligibility": {
+        "whoCanApply": "Australian sport organisations and clubs",
+        "requirements": [
+          "Australian sport organisation or club",
+          "Register a specific project with ASF",
+          "Project must meet ASF criteria"
+        ],
+        "croquetClubEligible": true,
+        "croquetNotes": "Clubs can register projects to receive tax-deductible donations. Great for large capital projects — donors get a tax benefit, so they're more likely to give."
+      },
+      "whatItFunds": [
+        "Any sport-related project the club registers",
+        "Capital works, equipment, programs and development"
+      ],
+      "whatItDoesNotFund": [
+        "Check ASF guidelines for exclusions"
+      ],
+      "tips": [
+        "Tax-deductibility is a big incentive — donors get a tax benefit.",
+        "Good for combining grant funding with community fundraising.",
+        "Promote your ASF project page through newsletters, social media, and events."
+      ],
+      "caseStudy": null,
+      "tags": ["club-eligible", "tax-deductible", "donations", "ongoing"]
+    },
+    {
+      "id": "qld-grants-finder",
+      "name": "QLD Government Grants Finder",
+      "provider": "Queensland Government (all departments)",
+      "type": "government",
+      "level": "state",
+      "amountMin": null,
+      "amountMax": null,
+      "status": "open",
+      "closingDate": null,
+      "nextRound": "Always available — new grants added as they open",
+      "frequency": "Ongoing portal",
+      "url": "https://www.grants.services.qld.gov.au/",
+      "eligibility": {
+        "whoCanApply": "Varies by individual grant listed on the portal",
+        "requirements": [
+          "Varies by individual grant"
+        ],
+        "croquetClubEligible": true,
+        "croquetNotes": "Search portal — search regularly for sport, recreation, and community grants. Filter by eligibility for incorporated associations."
+      },
+      "whatItFunds": [
+        "Varies — covers all QLD Government grant programs"
+      ],
+      "whatItDoesNotFund": [],
+      "tips": [
+        "Search regularly — new grants appear as they open.",
+        "Use terms like 'sport', 'recreation', 'community', 'not-for-profit'.",
+        "Subscribe to the QLD Sport & Rec 'State of Play' newsletter for alerts."
+      ],
+      "caseStudy": null,
+      "tags": ["search-portal", "aggregator"]
+    },
+    {
+      "id": "sport-rec-portal",
+      "name": "Sport and Recreation Grant Registration Portal",
+      "provider": "Queensland Government — Dept of Sport",
+      "type": "government",
+      "level": "state",
+      "amountMin": null,
+      "amountMax": null,
+      "status": "open",
+      "closingDate": null,
+      "nextRound": "Register to receive notifications when programs open",
+      "frequency": "Ongoing portal",
+      "url": "https://www.qld.gov.au/recreation/sports/funding/grants-portal",
+      "eligibility": {
+        "whoCanApply": "Sport and recreation organisations in Queensland",
+        "requirements": [
+          "Sport or recreation organisation",
+          "Specific eligibility varies by program"
+        ],
+        "croquetClubEligible": true,
+        "croquetNotes": "Register here to be notified of sport-specific funding as it opens. Gateway to AIBF and other sport programs."
+      },
+      "whatItFunds": [
+        "Varies by specific program"
+      ],
+      "whatItDoesNotFund": [],
+      "tips": [
+        "Register to receive notifications when new sport and recreation grants open.",
+        "This is the gateway to AIBF applications and other sport-specific programs."
+      ],
+      "caseStudy": null,
+      "tags": ["search-portal", "registration", "sport-specific"]
+    },
+    {
+      "id": "corporate-community",
+      "name": "Corporate Community Grant Programs",
+      "provider": "Various (Bendigo Bank, Woolworths, Bunnings, etc.)",
+      "type": "corporate",
+      "level": "private",
+      "amountMin": 500,
+      "amountMax": 20000,
+      "status": "open",
+      "closingDate": null,
+      "nextRound": "Varies by company — check individual program websites",
+      "frequency": "Varies (some annual, some ongoing)",
+      "url": null,
+      "eligibility": {
+        "whoCanApply": "Community organisations, not-for-profits, sport clubs",
+        "requirements": [
+          "Typically must be a not-for-profit or community group",
+          "Must align with the company's community investment priorities"
+        ],
+        "croquetClubEligible": true,
+        "croquetNotes": "Frame croquet around themes companies care about: active ageing, social inclusion, community wellbeing, mental health through sport."
+      },
+      "whatItFunds": [
+        "Community projects and events",
+        "Equipment",
+        "Programs aligned with company values"
+      ],
+      "whatItDoesNotFund": [
+        "Varies by company"
+      ],
+      "tips": [
+        "Search for programs from major companies in your area.",
+        "Frame your club around active ageing, social inclusion, and community wellbeing.",
+        "Bendigo Bank, Woolworths, and Bunnings all have community programs."
+      ],
+      "caseStudy": null,
+      "tags": ["club-eligible", "corporate", "community-wellbeing"]
+    },
+    {
+      "id": "community-foundations",
+      "name": "Community Foundations and Philanthropic Trusts",
+      "provider": "Various local and regional foundations",
+      "type": "community",
+      "level": "private",
+      "amountMin": 500,
+      "amountMax": 10000,
+      "status": "open",
+      "closingDate": null,
+      "nextRound": "Varies by foundation",
+      "frequency": "Typically annually",
+      "url": null,
+      "eligibility": {
+        "whoCanApply": "Community groups and not-for-profit organisations, typically within a specific geographic area",
+        "requirements": [
+          "Not-for-profit or community organisation",
+          "Operate within the foundation's geographic area",
+          "Demonstrate community benefit"
+        ],
+        "croquetClubEligible": true,
+        "croquetNotes": "Often less competitive than government grants. Frame your club as a community wellbeing and social inclusion asset."
+      },
+      "whatItFunds": [
+        "Community projects",
+        "Equipment",
+        "Programs supporting community wellbeing and inclusion"
+      ],
+      "whatItDoesNotFund": [
+        "Varies by foundation"
+      ],
+      "tips": [
+        "Search for community foundations in your local area.",
+        "Less competitive than government grants — worth trying.",
+        "Frame croquet as community wellbeing and social inclusion.",
+        "Network with other local community groups to learn about opportunities."
+      ],
+      "caseStudy": null,
+      "tags": ["club-eligible", "community", "less-competitive", "local"]
+    }
+  ],
+  "resources": [
+    {
+      "name": "Be Grant Ready (QLD Gov Guide)",
+      "url": "https://www.qld.gov.au/__data/assets/pdf_file/0038/472889/club-iq-be-grant-ready.pdf",
+      "description": "How to prepare your club for grant applications — incorporation, ABN, financials, strategic plan."
+    },
+    {
+      "name": "Grant Writing Guide (QLD Gov)",
+      "url": "https://www.qld.gov.au/__data/assets/pdf_file/0030/472890/club-iq-grant-writing.pdf",
+      "description": "How to write strong grant applications — answering questions, aligning with objectives, budgeting."
+    },
+    {
+      "name": "Making Money (QLD Gov Guide)",
+      "url": "https://www.qld.gov.au/__data/assets/pdf_file/0030/472845/club-iq-making-money.pdf",
+      "description": "Fundraising ideas and tips for sport clubs beyond grants."
+    },
+    {
+      "name": "Sponsorship Guide (QLD Gov)",
+      "url": "https://www.qld.gov.au/__data/assets/pdf_file/0028/472843/club-iq-sponsorship-guide.pdf",
+      "description": "Creating effective sponsorship partnerships for your club."
+    },
+    {
+      "name": "Sport and Recreation Partnerships Office",
+      "url": null,
+      "email": "sportrecpartnership@dtis.qld.gov.au",
+      "description": "Mandatory contact point for AIBF applications. Contact to register interest and request application templates."
+    }
+  ]
+}

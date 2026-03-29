@@ -1,0 +1,1721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grants Portal — Croquet Association of Queensland</title>
+  <meta name="description" content="Find grants for your Queensland croquet club. Browse available funding, get advice on eligibility, and use AI tools to help write your application.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lato:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       CUSTOM PROPERTIES
+    ============================================================ */
+    :root {
+      --maroon:       #73182C;
+      --maroon-dark:  #5a1222;
+      --maroon-mid:   #8c2035;
+      --green:        #82b25e;
+      --green-dark:   #6a9449;
+      --cream:        #FCF6DA;
+      --cream-dark:   #f0e8c0;
+      --charcoal:     #2c2c2c;
+      --mid-grey:     #555555;
+      --amber:        #d4811e;
+      --amber-tint:   #fef6ee;
+      --green-tint:   #f1f7ea;
+      --font-head:    'Abril Fatface', serif;
+      --font-body:    'Lato', sans-serif;
+      --max-w:        900px;
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--charcoal);
+      background: var(--cream);
+    }
+
+    h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.15; }
+
+    h2 {
+      font-size: clamp(1.65rem, 3.5vw, 2.25rem);
+      color: var(--maroon);
+      margin-bottom: 0.5rem;
+    }
+
+    h3 {
+      font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+      color: var(--maroon);
+      margin-bottom: 0.6rem;
+    }
+
+    p { margin-bottom: 0.9rem; }
+    p:last-child { margin-bottom: 0; }
+
+    a { color: var(--maroon); }
+    a:hover { color: var(--maroon-dark); }
+
+    .wrap {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    .hero {
+      background: var(--maroon);
+      color: var(--cream);
+      padding: 3.5rem 1.25rem 3rem;
+      border-bottom: 4px solid var(--green);
+    }
+
+    .hero-eyebrow {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 0.85rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 6vw, 3.6rem);
+      color: var(--cream);
+      margin-bottom: 0.75rem;
+      max-width: 700px;
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2.2vw, 1.2rem);
+      opacity: 0.88;
+      margin-bottom: 1.75rem;
+      max-width: 600px;
+    }
+
+    /* ============================================================
+       STICKY NAV
+    ============================================================ */
+    .sticky-nav {
+      background: var(--maroon-dark);
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      border-bottom: 3px solid var(--green);
+    }
+
+    .sticky-nav .wrap {
+      display: flex;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .sticky-nav .wrap::-webkit-scrollbar { display: none; }
+
+    .sticky-nav a {
+      display: block;
+      padding: 0.7rem 0.95rem;
+      color: rgba(252,246,218,0.85);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      border-bottom: 3px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
+      margin-bottom: -3px;
+      cursor: pointer;
+    }
+    .sticky-nav a:hover { color: var(--cream); }
+    .sticky-nav a.active {
+      color: var(--cream);
+      border-bottom-color: var(--green);
+    }
+
+    /* ============================================================
+       FILTER BAR
+    ============================================================ */
+    .filter-bar {
+      padding: 1.25rem 0;
+      border-bottom: 2px solid var(--green);
+    }
+
+    .filter-row {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .filter-row label {
+      font-weight: 700;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--maroon);
+    }
+
+    .filter-row select,
+    .filter-row input[type="text"] {
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      padding: 0.45rem 0.75rem;
+      border: 2px solid var(--cream-dark);
+      background: #fff;
+      color: var(--charcoal);
+      border-radius: 0;
+      appearance: auto;
+    }
+    .filter-row select:focus,
+    .filter-row input[type="text"]:focus {
+      outline: none;
+      border-color: var(--maroon);
+    }
+
+    .filter-row input[type="text"] {
+      flex: 1;
+      min-width: 180px;
+    }
+
+    .filter-count {
+      font-size: 0.85rem;
+      color: var(--mid-grey);
+      margin-top: 0.5rem;
+    }
+
+    /* ============================================================
+       GRANT CARDS
+    ============================================================ */
+    .grants-list {
+      padding: 1.5rem 0 3rem;
+    }
+
+    .grant-card {
+      background: #fff;
+      border: 2px solid var(--cream-dark);
+      margin-bottom: 1rem;
+      transition: border-color 0.15s;
+    }
+    .grant-card:hover {
+      border-color: var(--green);
+    }
+
+    .grant-header {
+      padding: 1.1rem 1.25rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      user-select: none;
+    }
+
+    .grant-header-left { flex: 1; }
+
+    .grant-name {
+      font-family: var(--font-head);
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      color: var(--maroon);
+      line-height: 1.25;
+      margin-bottom: 0.25rem;
+    }
+
+    .grant-meta {
+      font-size: 0.82rem;
+      color: var(--mid-grey);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.25rem;
+    }
+
+    .grant-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .grant-header-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.4rem;
+      flex-shrink: 0;
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .status-open { background: var(--green-tint); color: var(--green-dark); border: 1px solid var(--green); }
+    .status-upcoming { background: var(--amber-tint); color: var(--amber); border: 1px solid var(--amber); }
+    .status-closed { background: #f0f0f0; color: #888; border: 1px solid #ccc; }
+    .status-unknown { background: #f0f0f0; color: #888; border: 1px solid #ccc; }
+
+    .expand-icon {
+      font-size: 1.1rem;
+      color: var(--mid-grey);
+      transition: transform 0.2s;
+    }
+    .grant-card.expanded .expand-icon {
+      transform: rotate(180deg);
+    }
+
+    .grant-body {
+      display: none;
+      padding: 0 1.25rem 1.25rem;
+      border-top: 1px solid var(--cream-dark);
+    }
+    .grant-card.expanded .grant-body {
+      display: block;
+    }
+
+    .grant-section {
+      margin-top: 1.1rem;
+    }
+
+    .grant-section-title {
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--maroon);
+      margin-bottom: 0.4rem;
+    }
+
+    .grant-section ul {
+      list-style: none;
+      padding: 0;
+    }
+    .grant-section li {
+      padding: 0.2rem 0;
+      padding-left: 1.1rem;
+      position: relative;
+      font-size: 0.95rem;
+    }
+    .grant-section li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.55rem;
+      width: 6px;
+      height: 6px;
+      background: var(--green);
+      border-radius: 50%;
+    }
+
+    .grant-section p {
+      font-size: 0.95rem;
+    }
+
+    .eligibility-badge {
+      display: inline-block;
+      padding: 0.25rem 0.7rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .eligible-yes {
+      background: var(--green-tint);
+      color: var(--green-dark);
+      border: 1px solid var(--green);
+    }
+    .eligible-no {
+      background: #fef0ee;
+      color: #c0392b;
+      border: 1px solid #e0a8a0;
+    }
+
+    .case-study-box {
+      background: var(--amber-tint);
+      border: 2px solid var(--amber);
+      padding: 1rem 1.25rem;
+      margin-top: 1rem;
+    }
+
+    .case-study-box h4 {
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--amber);
+      margin-bottom: 0.4rem;
+    }
+
+    .grant-actions {
+      margin-top: 1.25rem;
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.55rem 1.2rem;
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-decoration: none;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .btn-maroon {
+      background: var(--maroon);
+      color: var(--cream);
+      border-color: var(--maroon);
+    }
+    .btn-maroon:hover {
+      background: var(--maroon-dark);
+      color: var(--cream);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--maroon);
+      border-color: var(--maroon);
+    }
+    .btn-outline:hover {
+      background: var(--maroon);
+      color: var(--cream);
+    }
+
+    .btn-green {
+      background: var(--green);
+      color: #fff;
+      border-color: var(--green);
+    }
+    .btn-green:hover {
+      background: var(--green-dark);
+    }
+
+    .btn-small {
+      padding: 0.35rem 0.85rem;
+      font-size: 0.78rem;
+    }
+
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    /* ============================================================
+       RESOURCES SECTION
+    ============================================================ */
+    .resources-section {
+      padding: 2rem 0 3rem;
+      border-top: 2px solid var(--green);
+    }
+
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .resource-card {
+      background: #fff;
+      border: 2px solid var(--cream-dark);
+      padding: 1rem 1.25rem;
+    }
+
+    .resource-card h4 {
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: var(--maroon);
+      margin-bottom: 0.3rem;
+    }
+
+    .resource-card p {
+      font-size: 0.85rem;
+      color: var(--mid-grey);
+      margin-bottom: 0.5rem;
+    }
+
+    .resource-card a {
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer {
+      background: var(--maroon);
+      color: var(--cream);
+      padding: 2rem 1.25rem;
+      text-align: center;
+      font-size: 0.85rem;
+      opacity: 0.9;
+    }
+
+    footer a {
+      color: var(--cream);
+      text-decoration: underline;
+    }
+
+    /* ============================================================
+       TAB PANELS
+    ============================================================ */
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* ============================================================
+       LOADING
+    ============================================================ */
+    .loading {
+      text-align: center;
+      padding: 3rem 0;
+      color: var(--mid-grey);
+      font-size: 1.1rem;
+    }
+
+    /* ============================================================
+       WIZARD (Writing Assistant)
+    ============================================================ */
+    .wizard {
+      padding: 2rem 0 3rem;
+    }
+
+    .wizard-intro {
+      color: var(--mid-grey);
+      margin-bottom: 1.5rem;
+      max-width: 680px;
+    }
+
+    .wizard-steps {
+      display: flex;
+      gap: 0;
+      margin-bottom: 2rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .wizard-steps::-webkit-scrollbar { display: none; }
+
+    .wizard-step-indicator {
+      flex: 1;
+      min-width: 0;
+      text-align: center;
+      padding: 0.6rem 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--mid-grey);
+      background: var(--cream-dark);
+      border-bottom: 3px solid transparent;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .wizard-step-indicator.active {
+      color: var(--maroon);
+      background: #fff;
+      border-bottom-color: var(--maroon);
+    }
+    .wizard-step-indicator.done {
+      color: var(--green-dark);
+      background: var(--green-tint);
+      border-bottom-color: var(--green);
+    }
+
+    .wizard-panel { display: none; }
+    .wizard-panel.active { display: block; }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--maroon);
+      margin-bottom: 0.35rem;
+    }
+
+    .form-group .form-hint {
+      display: block;
+      font-size: 0.82rem;
+      color: var(--mid-grey);
+      margin-bottom: 0.35rem;
+    }
+
+    .form-group select,
+    .form-group input[type="text"],
+    .form-group input[type="number"],
+    .form-group textarea {
+      width: 100%;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      padding: 0.55rem 0.75rem;
+      border: 2px solid var(--cream-dark);
+      background: #fff;
+      color: var(--charcoal);
+      border-radius: 0;
+    }
+    .form-group select:focus,
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--maroon);
+    }
+
+    .form-group textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .wizard-nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--cream-dark);
+    }
+
+    /* Generated content */
+    .generated-sections {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .generated-block {
+      background: #fff;
+      border: 2px solid var(--cream-dark);
+      padding: 1.25rem;
+    }
+
+    .generated-block-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+    }
+
+    .generated-block-title {
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--maroon);
+    }
+
+    .generated-block-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .generated-block textarea {
+      width: 100%;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      line-height: 1.65;
+      padding: 0.75rem;
+      border: 1px solid var(--cream-dark);
+      background: var(--cream);
+      color: var(--charcoal);
+      border-radius: 0;
+      min-height: 120px;
+      resize: vertical;
+    }
+    .generated-block textarea:focus {
+      outline: none;
+      border-color: var(--maroon);
+    }
+
+    .generating-indicator {
+      text-align: center;
+      padding: 2rem;
+      color: var(--mid-grey);
+    }
+
+    .generating-indicator .dots::after {
+      content: '';
+      animation: dots 1.5s steps(4, end) infinite;
+    }
+    @keyframes dots {
+      0%, 20% { content: ''; }
+      40% { content: '.'; }
+      60% { content: '..'; }
+      80%, 100% { content: '...'; }
+    }
+
+    /* ============================================================
+       CHAT (Grant Advisor)
+    ============================================================ */
+    .chat-container {
+      padding: 2rem 0 0;
+    }
+
+    .chat-intro {
+      color: var(--mid-grey);
+      margin-bottom: 1rem;
+      max-width: 680px;
+    }
+
+    .chat-starters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .chat-starter {
+      background: #fff;
+      border: 2px solid var(--cream-dark);
+      padding: 0.5rem 1rem;
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      color: var(--maroon);
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .chat-starter:hover {
+      border-color: var(--maroon);
+      background: var(--amber-tint);
+    }
+
+    .chat-messages {
+      min-height: 200px;
+      max-height: 500px;
+      overflow-y: auto;
+      margin-bottom: 1rem;
+      padding: 0.5rem 0;
+    }
+
+    .chat-message {
+      margin-bottom: 1rem;
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .chat-message-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .chat-message.user .chat-message-avatar {
+      background: var(--green);
+      color: #fff;
+    }
+
+    .chat-message.assistant .chat-message-avatar {
+      background: var(--maroon);
+      color: var(--cream);
+    }
+
+    .chat-message-body {
+      flex: 1;
+      background: #fff;
+      border: 1px solid var(--cream-dark);
+      padding: 0.75rem 1rem;
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .chat-message.user .chat-message-body {
+      background: var(--green-tint);
+      border-color: var(--green);
+    }
+
+    .chat-input-row {
+      display: flex;
+      gap: 0.5rem;
+      padding-bottom: 2rem;
+    }
+
+    .chat-input-row textarea {
+      flex: 1;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      padding: 0.6rem 0.75rem;
+      border: 2px solid var(--cream-dark);
+      background: #fff;
+      color: var(--charcoal);
+      border-radius: 0;
+      resize: none;
+      min-height: 44px;
+      max-height: 120px;
+    }
+    .chat-input-row textarea:focus {
+      outline: none;
+      border-color: var(--maroon);
+    }
+
+    .api-notice {
+      background: var(--amber-tint);
+      border: 2px solid var(--amber);
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .api-notice strong {
+      color: var(--amber);
+    }
+
+    /* ============================================================
+       COPY FEEDBACK
+    ============================================================ */
+    .copy-feedback {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      background: var(--green);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      font-weight: 700;
+      font-size: 0.85rem;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.2s, transform 0.2s;
+      z-index: 999;
+      pointer-events: none;
+    }
+    .copy-feedback.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 600px) {
+      .grant-header {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .grant-header-right {
+        flex-direction: row;
+        align-items: center;
+      }
+      .filter-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .filter-row select,
+      .filter-row input[type="text"] {
+        width: 100%;
+      }
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      .wizard-step-indicator {
+        font-size: 0.65rem;
+        padding: 0.5rem 0.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero-eyebrow">Croquet Association of Queensland</div>
+      <h1>Grants Portal</h1>
+      <p class="hero-sub">Find funding for your club. Browse available grants, check your eligibility, and get help writing a winning application.</p>
+    </div>
+  </header>
+
+  <!-- STICKY NAV -->
+  <nav class="sticky-nav">
+    <div class="wrap">
+      <a class="active" data-tab="directory">Find Grants</a>
+      <a data-tab="assistant">Writing Assistant</a>
+      <a data-tab="advisor">Grant Advisor</a>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       TAB: FIND GRANTS
+  ============================================================ -->
+  <div id="tab-directory" class="tab-panel active">
+    <section class="filter-bar">
+      <div class="wrap">
+        <div class="filter-row">
+          <label for="filter-type">Type</label>
+          <select id="filter-type">
+            <option value="all">All types</option>
+            <option value="government">Government</option>
+            <option value="corporate">Corporate</option>
+            <option value="community">Community</option>
+          </select>
+          <label for="filter-status">Status</label>
+          <select id="filter-status">
+            <option value="all">All statuses</option>
+            <option value="open">Open</option>
+            <option value="upcoming">Upcoming</option>
+            <option value="closed">Closed</option>
+          </select>
+          <label for="filter-eligible">Eligible</label>
+          <select id="filter-eligible">
+            <option value="all">All grants</option>
+            <option value="club">Club eligible</option>
+            <option value="state">State body (CAQ)</option>
+          </select>
+          <input type="text" id="filter-search" placeholder="Search grants...">
+        </div>
+        <div class="filter-count" id="filter-count"></div>
+      </div>
+    </section>
+
+    <section class="grants-list">
+      <div class="wrap" id="grants-container">
+        <div class="loading">Loading grants...</div>
+      </div>
+    </section>
+
+    <section class="resources-section">
+      <div class="wrap">
+        <h2>Useful Resources</h2>
+        <p style="color: var(--mid-grey); margin-bottom: 1rem;">Guides and tools to help your club get grant-ready.</p>
+        <div class="resource-grid" id="resources-container"></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============================================================
+       TAB: WRITING ASSISTANT
+  ============================================================ -->
+  <div id="tab-assistant" class="tab-panel">
+    <section class="wizard">
+      <div class="wrap">
+        <h2>Grant Writing Assistant</h2>
+        <p class="wizard-intro">Answer a few questions about your club and project, and we'll help you draft key sections of your grant application. You can edit everything before you copy it out.</p>
+
+        <!-- Step indicators -->
+        <div class="wizard-steps">
+          <div class="wizard-step-indicator active" data-step="1">1. Select Grant</div>
+          <div class="wizard-step-indicator" data-step="2">2. Your Club</div>
+          <div class="wizard-step-indicator" data-step="3">3. Your Project</div>
+          <div class="wizard-step-indicator" data-step="4">4. Budget</div>
+          <div class="wizard-step-indicator" data-step="5">5. Generated Draft</div>
+        </div>
+
+        <!-- Step 1: Select Grant -->
+        <div class="wizard-panel active" data-step="1">
+          <div class="form-group">
+            <label for="wiz-grant">Which grant are you applying for?</label>
+            <span class="form-hint">Select from the grants in our directory, or choose "Other" to describe a different grant.</span>
+            <select id="wiz-grant">
+              <option value="">— Select a grant —</option>
+            </select>
+          </div>
+          <div class="form-group" id="wiz-other-grant-group" style="display:none;">
+            <label for="wiz-other-grant">Describe the grant</label>
+            <span class="form-hint">Name of the grant, who runs it, and what it funds.</span>
+            <textarea id="wiz-other-grant" rows="3" placeholder="e.g. Brisbane City Council Community Grants — up to $10,000 for community projects"></textarea>
+          </div>
+          <div class="wizard-nav">
+            <div></div>
+            <button class="btn btn-maroon" onclick="wizardNext()">Next</button>
+          </div>
+        </div>
+
+        <!-- Step 2: Club Details -->
+        <div class="wizard-panel" data-step="2">
+          <div class="form-group">
+            <label for="wiz-club-name">Club name</label>
+            <input type="text" id="wiz-club-name" placeholder="e.g. Toowoomba Croquet Club">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="wiz-members">Number of members</label>
+              <input type="number" id="wiz-members" placeholder="e.g. 35">
+            </div>
+            <div class="form-group">
+              <label for="wiz-region">Region</label>
+              <input type="text" id="wiz-region" placeholder="e.g. Darling Downs">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="wiz-incorporated">Incorporated?</label>
+              <select id="wiz-incorporated">
+                <option value="yes">Yes — incorporated association</option>
+                <option value="no">No</option>
+                <option value="unsure">Not sure</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="wiz-abn">Has ABN?</label>
+              <select id="wiz-abn">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+                <option value="unsure">Not sure</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="wiz-club-desc">Brief description of your club</label>
+            <span class="form-hint">What makes your club special? Who are your members? Any community activities?</span>
+            <textarea id="wiz-club-desc" rows="3" placeholder="e.g. Community-focused club with 35 members aged 55-85, we host social events and have partnerships with local aged care facilities"></textarea>
+          </div>
+          <div class="wizard-nav">
+            <button class="btn btn-outline" onclick="wizardPrev()">Back</button>
+            <button class="btn btn-maroon" onclick="wizardNext()">Next</button>
+          </div>
+        </div>
+
+        <!-- Step 3: Project Description -->
+        <div class="wizard-panel" data-step="3">
+          <div class="form-group">
+            <label for="wiz-project-title">Project title</label>
+            <span class="form-hint">A short, clear name for your project.</span>
+            <input type="text" id="wiz-project-title" placeholder="e.g. Court Resurfacing and Lighting Upgrade">
+          </div>
+          <div class="form-group">
+            <label for="wiz-project-desc">What is the project?</label>
+            <span class="form-hint">Describe what you want to do, why you need it, and who it will benefit. The more detail, the better the draft.</span>
+            <textarea id="wiz-project-desc" rows="5" placeholder="e.g. Our courts are 15 years old and the surface is cracking. We need to resurface 2 courts and add lighting so members can play in the evenings. This will let us offer evening sessions for working-age members and host inter-club competitions..."></textarea>
+          </div>
+          <div class="form-group">
+            <label for="wiz-community-benefit">Who benefits beyond your club members?</label>
+            <span class="form-hint">Grants want to see broader community impact — not just benefit to your members.</span>
+            <textarea id="wiz-community-benefit" rows="3" placeholder="e.g. Local aged care residents attend weekly social sessions, nearby schools use our courts for PE, we host community BBQs..."></textarea>
+          </div>
+          <div class="wizard-nav">
+            <button class="btn btn-outline" onclick="wizardPrev()">Back</button>
+            <button class="btn btn-maroon" onclick="wizardNext()">Next</button>
+          </div>
+        </div>
+
+        <!-- Step 4: Budget -->
+        <div class="wizard-panel" data-step="4">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="wiz-total-cost">Total project cost ($)</label>
+              <input type="number" id="wiz-total-cost" placeholder="e.g. 25000">
+            </div>
+            <div class="form-group">
+              <label for="wiz-grant-amount">Amount requesting ($)</label>
+              <input type="number" id="wiz-grant-amount" placeholder="e.g. 15000">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="wiz-club-contribution">Club contribution ($)</label>
+              <span class="form-hint">Cash your club will put in.</span>
+              <input type="number" id="wiz-club-contribution" placeholder="e.g. 5000">
+            </div>
+            <div class="form-group">
+              <label for="wiz-in-kind">In-kind contribution ($)</label>
+              <span class="form-hint">Volunteer labour, donated materials, etc.</span>
+              <input type="number" id="wiz-in-kind" placeholder="e.g. 5000">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="wiz-budget-notes">Budget notes</label>
+            <span class="form-hint">Any other funding sources, quotes obtained, timeline, etc.</span>
+            <textarea id="wiz-budget-notes" rows="3" placeholder="e.g. We have 2 quotes from contractors. Timeline: 3 months from funding confirmation."></textarea>
+          </div>
+          <div class="wizard-nav">
+            <button class="btn btn-outline" onclick="wizardPrev()">Back</button>
+            <button class="btn btn-green" onclick="generateDraft()" id="btn-generate">Generate Draft</button>
+          </div>
+        </div>
+
+        <!-- Step 5: Generated Draft -->
+        <div class="wizard-panel" data-step="5">
+          <div id="generated-content">
+            <div class="generating-indicator">
+              <p>Generating your grant application draft<span class="dots"></span></p>
+              <p style="font-size: 0.85rem; margin-top: 0.5rem;">This may take 30–60 seconds.</p>
+            </div>
+          </div>
+          <div class="wizard-nav" id="wizard-nav-final" style="display:none;">
+            <button class="btn btn-outline" onclick="wizardGoto(1)">Start Over</button>
+            <button class="btn btn-maroon" onclick="copyAllSections()">Copy All Sections</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <!-- ============================================================
+       TAB: GRANT ADVISOR
+  ============================================================ -->
+  <div id="tab-advisor" class="tab-panel">
+    <section class="chat-container">
+      <div class="wrap">
+        <h2>Grant Advisor</h2>
+        <p class="chat-intro">Ask questions about grants, eligibility, and get personalised advice for your croquet club. Our advisor knows about QLD grants and what works for croquet clubs.</p>
+
+        <div class="chat-starters" id="chat-starters">
+          <button class="chat-starter" onclick="sendStarterMessage(this)">What grants can my club apply for?</button>
+          <button class="chat-starter" onclick="sendStarterMessage(this)">How do I write a strong application?</button>
+          <button class="chat-starter" onclick="sendStarterMessage(this)">Is my club grant-ready?</button>
+          <button class="chat-starter" onclick="sendStarterMessage(this)">What should I include in a budget?</button>
+        </div>
+
+        <div class="chat-messages" id="chat-messages"></div>
+
+        <div class="chat-input-row">
+          <textarea id="chat-input" placeholder="Ask a question about grants..." rows="1" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendChatMessage();}"></textarea>
+          <button class="btn btn-maroon" onclick="sendChatMessage()" id="btn-send">Send</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Copy feedback toast -->
+  <div class="copy-feedback" id="copy-feedback">Copied to clipboard</div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <p>Grants data curated by the <a href="https://croquetqld.org" target="_blank" rel="noopener">Croquet Association of Queensland</a>. Last updated: <span id="last-updated"></span>.</p>
+      <p>Always verify grant details and deadlines directly with the funding provider before applying.</p>
+    </div>
+  </footer>
+
+  <!-- Config (gitignored) -->
+  <script src="config.js"></script>
+
+  <script>
+    /* ============================================================
+       DATA & STATE
+    ============================================================ */
+    let grantsData = null;
+    let wizardStep = 1;
+    let chatHistory = [];
+    let isGenerating = false;
+
+    /* ============================================================
+       INIT
+    ============================================================ */
+    async function init() {
+      try {
+        const resp = await fetch('grants.json');
+        grantsData = await resp.json();
+        document.querySelectorAll('.last-updated, #last-updated').forEach(el => {
+          el.textContent = grantsData.lastUpdated;
+        });
+        renderGrants(grantsData.grants);
+        renderResources(grantsData.resources);
+        populateWizardGrants();
+      } catch (err) {
+        document.getElementById('grants-container').innerHTML =
+          '<p style="color:#c0392b;">Could not load grants data. Please try refreshing the page.</p>';
+      }
+    }
+
+    /* ============================================================
+       AI API
+    ============================================================ */
+    function getConfig() {
+      if (typeof window.GRANTS_CONFIG !== 'undefined') return window.GRANTS_CONFIG;
+      return null;
+    }
+
+    async function callAI(messages, task) {
+      const config = getConfig();
+      if (!config) throw new Error('AI configuration not loaded. Contact the site administrator.');
+
+      // Tiered model selection — cheapest that does the job
+      const model = (config.models && config.models[task]) || config.models?.writing || 'anthropic/claude-sonnet-4';
+
+      const resp = await fetch(config.apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + config.apiKey,
+          'HTTP-Referer': window.location.href,
+          'X-Title': 'CAQ Grants Portal'
+        },
+        body: JSON.stringify({
+          model: model,
+          messages: messages,
+          max_tokens: 4000,
+          temperature: 0.7
+        })
+      });
+
+      if (!resp.ok) {
+        const err = await resp.text();
+        throw new Error('AI request failed: ' + resp.status);
+      }
+
+      const data = await resp.json();
+      return data.choices[0].message.content;
+    }
+
+    function buildGrantsContext() {
+      if (!grantsData) return '';
+      return grantsData.grants.map(g => {
+        let s = `- ${g.name} (${g.provider}): ${g.status}`;
+        if (g.amountMin || g.amountMax) s += `, ${formatAmount(g)}`;
+        s += `. Club eligible: ${g.eligibility.croquetClubEligible ? 'Yes' : 'No (state body only)'}`;
+        s += `. ${g.eligibility.croquetNotes}`;
+        if (g.tips.length) s += ` Tips: ${g.tips.join(' ')}`;
+        if (g.caseStudy) s += ` Case study: ${g.caseStudy.club} — ${g.caseStudy.project}${g.caseStudy.amount ? ' ($' + g.caseStudy.amount.toLocaleString() + ')' : ''}.`;
+        return s;
+      }).join('\n');
+    }
+
+    /* ============================================================
+       RENDER GRANTS
+    ============================================================ */
+    function renderGrants(grants) {
+      const container = document.getElementById('grants-container');
+      if (!grants.length) {
+        container.innerHTML = '<p style="color:var(--mid-grey);">No grants match your filters.</p>';
+        document.getElementById('filter-count').textContent = '0 grants found';
+        return;
+      }
+
+      document.getElementById('filter-count').textContent = grants.length + ' grant' + (grants.length === 1 ? '' : 's') + ' found';
+
+      container.innerHTML = grants.map(g => `
+        <div class="grant-card" data-id="${g.id}">
+          <div class="grant-header" onclick="toggleCard('${g.id}')">
+            <div class="grant-header-left">
+              <div class="grant-name">${g.name}</div>
+              <div class="grant-meta">
+                <span>${g.provider}</span>
+                ${g.amountMin || g.amountMax ? `<span>${formatAmount(g)}</span>` : ''}
+                ${g.closingDate ? `<span>Closes: ${g.closingDate}</span>` : ''}
+              </div>
+            </div>
+            <div class="grant-header-right">
+              <span class="status-badge status-${g.status}">${g.status}</span>
+              <span class="expand-icon">&#9660;</span>
+            </div>
+          </div>
+          <div class="grant-body">
+            ${renderGrantBody(g)}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function renderGrantBody(g) {
+      let html = '';
+
+      html += '<div class="grant-section">';
+      html += '<div class="grant-section-title">Eligibility</div>';
+      const isClubEligible = g.eligibility.croquetClubEligible;
+      html += `<span class="eligibility-badge ${isClubEligible ? 'eligible-yes' : 'eligible-no'}">
+        ${isClubEligible ? 'Croquet clubs eligible' : 'State body only (CAQ)'}
+      </span>`;
+      html += `<p>${g.eligibility.croquetNotes}</p>`;
+      if (g.eligibility.requirements.length) {
+        html += '<ul>' + g.eligibility.requirements.map(r => `<li>${r}</li>`).join('') + '</ul>';
+      }
+      html += '</div>';
+
+      if (g.whatItFunds.length) {
+        html += '<div class="grant-section">';
+        html += '<div class="grant-section-title">What it funds</div>';
+        html += '<ul>' + g.whatItFunds.map(f => `<li>${f}</li>`).join('') + '</ul>';
+        html += '</div>';
+      }
+
+      if (g.whatItDoesNotFund.length) {
+        html += '<div class="grant-section">';
+        html += '<div class="grant-section-title">What it does not fund</div>';
+        html += '<ul>' + g.whatItDoesNotFund.map(f => `<li>${f}</li>`).join('') + '</ul>';
+        html += '</div>';
+      }
+
+      html += '<div class="grant-section">';
+      html += '<div class="grant-section-title">Timing</div>';
+      html += `<p><strong>Next round:</strong> ${g.nextRound}</p>`;
+      html += `<p><strong>Frequency:</strong> ${g.frequency}</p>`;
+      html += '</div>';
+
+      if (g.tips.length) {
+        html += '<div class="grant-section">';
+        html += '<div class="grant-section-title">Tips for croquet clubs</div>';
+        html += '<ul>' + g.tips.map(t => `<li>${t}</li>`).join('') + '</ul>';
+        html += '</div>';
+      }
+
+      if (g.caseStudy) {
+        html += `<div class="case-study-box">
+          <h4>Case Study: ${g.caseStudy.club}</h4>
+          <p><strong>Project:</strong> ${g.caseStudy.project}${g.caseStudy.amount ? ` — $${g.caseStudy.amount.toLocaleString()}` : ''}</p>
+          ${g.caseStudy.contact ? `<p><strong>Contact:</strong> ${g.caseStudy.contact}</p>` : ''}
+          <ul style="list-style:none; padding:0;">
+            ${g.caseStudy.lessons.map(l => `<li style="padding:0.15rem 0; padding-left:1.1rem; position:relative; font-size:0.9rem;">
+              <span style="position:absolute; left:0; top:0.45rem; width:6px; height:6px; background:var(--amber); border-radius:50%; display:inline-block;"></span>
+              ${l}
+            </li>`).join('')}
+          </ul>
+        </div>`;
+      }
+
+      html += '<div class="grant-actions">';
+      if (g.url) {
+        html += `<a href="${g.url}" target="_blank" rel="noopener" class="btn btn-maroon">Visit Grant Website</a>`;
+      }
+      html += '</div>';
+
+      return html;
+    }
+
+    /* ============================================================
+       RENDER RESOURCES
+    ============================================================ */
+    function renderResources(resources) {
+      const container = document.getElementById('resources-container');
+      container.innerHTML = resources.map(r => `
+        <div class="resource-card">
+          <h4>${r.name}</h4>
+          <p>${r.description}</p>
+          ${r.url ? `<a href="${r.url}" target="_blank" rel="noopener">Open resource &rarr;</a>` : ''}
+          ${r.email ? `<a href="mailto:${r.email}">${r.email}</a>` : ''}
+        </div>
+      `).join('');
+    }
+
+    /* ============================================================
+       HELPERS
+    ============================================================ */
+    function formatAmount(g) {
+      if (g.amountMin && g.amountMax) return '$' + g.amountMin.toLocaleString() + ' – $' + g.amountMax.toLocaleString();
+      if (g.amountMax) return 'Up to $' + g.amountMax.toLocaleString();
+      if (g.amountMin) return 'From $' + g.amountMin.toLocaleString();
+      return '';
+    }
+
+    function toggleCard(id) {
+      document.querySelector(`.grant-card[data-id="${id}"]`).classList.toggle('expanded');
+    }
+
+    function showCopyFeedback() {
+      const el = document.getElementById('copy-feedback');
+      el.classList.add('show');
+      setTimeout(() => el.classList.remove('show'), 2000);
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    /* ============================================================
+       FILTERS
+    ============================================================ */
+    function applyFilters() {
+      if (!grantsData) return;
+      const type = document.getElementById('filter-type').value;
+      const status = document.getElementById('filter-status').value;
+      const eligible = document.getElementById('filter-eligible').value;
+      const search = document.getElementById('filter-search').value.toLowerCase().trim();
+
+      let filtered = grantsData.grants.filter(g => {
+        if (type !== 'all' && g.type !== type) return false;
+        if (status !== 'all' && g.status !== status) return false;
+        if (eligible === 'club' && !g.eligibility.croquetClubEligible) return false;
+        if (eligible === 'state' && g.eligibility.croquetClubEligible) return false;
+        if (search) {
+          const haystack = (g.name + ' ' + g.provider + ' ' + g.tags.join(' ') + ' ' + g.eligibility.croquetNotes).toLowerCase();
+          if (!haystack.includes(search)) return false;
+        }
+        return true;
+      });
+      renderGrants(filtered);
+    }
+
+    document.getElementById('filter-type').addEventListener('change', applyFilters);
+    document.getElementById('filter-status').addEventListener('change', applyFilters);
+    document.getElementById('filter-eligible').addEventListener('change', applyFilters);
+    document.getElementById('filter-search').addEventListener('input', applyFilters);
+
+    /* ============================================================
+       TAB NAVIGATION
+    ============================================================ */
+    document.querySelectorAll('.sticky-nav a[data-tab]').forEach(tab => {
+      tab.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelectorAll('.sticky-nav a').forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+        document.getElementById('tab-' + this.dataset.tab).classList.add('active');
+      });
+    });
+
+    /* ============================================================
+       WIZARD: Writing Assistant
+    ============================================================ */
+    function populateWizardGrants() {
+      if (!grantsData) return;
+      const select = document.getElementById('wiz-grant');
+      grantsData.grants
+        .filter(g => g.eligibility.croquetClubEligible)
+        .forEach(g => {
+          const opt = document.createElement('option');
+          opt.value = g.id;
+          opt.textContent = g.name;
+          select.appendChild(opt);
+        });
+      const other = document.createElement('option');
+      other.value = '__other__';
+      other.textContent = 'Other (not listed)';
+      select.appendChild(other);
+
+      select.addEventListener('change', () => {
+        document.getElementById('wiz-other-grant-group').style.display =
+          select.value === '__other__' ? 'block' : 'none';
+      });
+    }
+
+    function wizardGoto(step) {
+      wizardStep = step;
+      document.querySelectorAll('.wizard-panel').forEach(p => p.classList.remove('active'));
+      document.querySelector(`.wizard-panel[data-step="${step}"]`).classList.add('active');
+      document.querySelectorAll('.wizard-step-indicator').forEach(ind => {
+        const s = parseInt(ind.dataset.step);
+        ind.classList.remove('active', 'done');
+        if (s === step) ind.classList.add('active');
+        else if (s < step) ind.classList.add('done');
+      });
+    }
+
+    function wizardNext() {
+      if (wizardStep < 5) wizardGoto(wizardStep + 1);
+    }
+
+    function wizardPrev() {
+      if (wizardStep > 1) wizardGoto(wizardStep - 1);
+    }
+
+    function getWizardData() {
+      const grantId = document.getElementById('wiz-grant').value;
+      let grantInfo = '';
+      if (grantId === '__other__') {
+        grantInfo = document.getElementById('wiz-other-grant').value || 'Not specified';
+      } else if (grantId && grantsData) {
+        const g = grantsData.grants.find(x => x.id === grantId);
+        if (g) {
+          grantInfo = `${g.name} — ${g.provider}. Funds: ${g.whatItFunds.join(', ')}. ` +
+            `Eligibility: ${g.eligibility.croquetNotes}`;
+          if (g.tips.length) grantInfo += ` Tips: ${g.tips.join(' ')}`;
+        }
+      }
+
+      return {
+        grant: grantInfo,
+        clubName: document.getElementById('wiz-club-name').value,
+        members: document.getElementById('wiz-members').value,
+        region: document.getElementById('wiz-region').value,
+        incorporated: document.getElementById('wiz-incorporated').value,
+        abn: document.getElementById('wiz-abn').value,
+        clubDesc: document.getElementById('wiz-club-desc').value,
+        projectTitle: document.getElementById('wiz-project-title').value,
+        projectDesc: document.getElementById('wiz-project-desc').value,
+        communityBenefit: document.getElementById('wiz-community-benefit').value,
+        totalCost: document.getElementById('wiz-total-cost').value,
+        grantAmount: document.getElementById('wiz-grant-amount').value,
+        clubContribution: document.getElementById('wiz-club-contribution').value,
+        inKind: document.getElementById('wiz-in-kind').value,
+        budgetNotes: document.getElementById('wiz-budget-notes').value
+      };
+    }
+
+    async function generateDraft() {
+      if (isGenerating) return;
+      isGenerating = true;
+
+      wizardGoto(5);
+      document.getElementById('generated-content').innerHTML = `
+        <div class="generating-indicator">
+          <p>Generating your grant application draft<span class="dots"></span></p>
+          <p style="font-size: 0.85rem; margin-top: 0.5rem;">This may take 30–60 seconds.</p>
+        </div>`;
+      document.getElementById('wizard-nav-final').style.display = 'none';
+
+      const data = getWizardData();
+
+      const systemPrompt = `You are a grant writing assistant for Queensland croquet clubs. You help volunteer committee members draft strong grant applications.
+
+Write in plain, warm Australian English. Be specific and practical — avoid vague corporate language. Use concrete numbers and specific details from the information provided.
+
+The user has filled in a form about their club and project. Generate FOUR sections for their grant application, clearly separated with headers:
+
+## PROJECT DESCRIPTION
+A clear, compelling description of the project — what will be done, why it's needed, and what will be different afterwards. 2–3 paragraphs.
+
+## COMMUNITY IMPACT
+How this project benefits the broader community beyond just club members. Include specific examples. 2–3 paragraphs.
+
+## ORGANISATIONAL CAPACITY
+Why this club is well-placed to deliver the project — governance, track record, volunteer base, partnerships. 1–2 paragraphs.
+
+## BUDGET JUSTIFICATION
+Why the budget is reasonable and represents good value. Explain the funding mix (grant + club contribution + in-kind). 1–2 paragraphs.
+
+Where the user hasn't provided enough detail, write [PLACEHOLDER: describe what information is needed] so they know what to fill in.
+
+Keep the tone warm but professional. Grant assessors read hundreds of applications — be clear, specific, and direct.`;
+
+      const userMessage = `Please draft grant application sections for:
+
+GRANT: ${data.grant || 'Not specified'}
+
+CLUB: ${data.clubName || '[Club name]'}
+Members: ${data.members || '[Not specified]'}
+Region: ${data.region || '[Not specified]'}
+Incorporated: ${data.incorporated}
+ABN: ${data.abn}
+Description: ${data.clubDesc || '[Not provided]'}
+
+PROJECT: ${data.projectTitle || '[Project title]'}
+Description: ${data.projectDesc || '[Not provided]'}
+Community benefit: ${data.communityBenefit || '[Not provided]'}
+
+BUDGET:
+Total cost: $${data.totalCost || '[Not specified]'}
+Requesting: $${data.grantAmount || '[Not specified]'}
+Club contribution: $${data.clubContribution || '[Not specified]'}
+In-kind: $${data.inKind || '[Not specified]'}
+Notes: ${data.budgetNotes || '[None]'}`;
+
+      try {
+        const result = await callAI([
+          { role: 'system', content: systemPrompt },
+          { role: 'user', content: userMessage }
+        ], 'writing');
+
+        const sections = parseSections(result);
+        renderGeneratedSections(sections);
+      } catch (err) {
+        document.getElementById('generated-content').innerHTML = `
+          <div class="api-notice">
+            <strong>Could not generate draft.</strong>
+            <p>${escapeHtml(err.message)}</p>
+            <p>You can go back and try again, or use the Grant Advisor tab to get help writing your application in a conversation.</p>
+          </div>`;
+        document.getElementById('wizard-nav-final').style.display = 'flex';
+      }
+
+      isGenerating = false;
+    }
+
+    function parseSections(text) {
+      const sectionNames = ['PROJECT DESCRIPTION', 'COMMUNITY IMPACT', 'ORGANISATIONAL CAPACITY', 'BUDGET JUSTIFICATION'];
+      const sections = [];
+
+      for (let i = 0; i < sectionNames.length; i++) {
+        const name = sectionNames[i];
+        const regex = new RegExp('##\\s*' + name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\s*\\n', 'i');
+        const match = text.match(regex);
+        if (match) {
+          const start = match.index + match[0].length;
+          let end = text.length;
+          for (let j = i + 1; j < sectionNames.length; j++) {
+            const nextRegex = new RegExp('##\\s*' + sectionNames[j].replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');
+            const nextMatch = text.substring(start).match(nextRegex);
+            if (nextMatch) {
+              end = start + nextMatch.index;
+              break;
+            }
+          }
+          sections.push({ title: name, content: text.substring(start, end).trim() });
+        }
+      }
+
+      if (sections.length === 0) {
+        sections.push({ title: 'GENERATED DRAFT', content: text.trim() });
+      }
+
+      return sections;
+    }
+
+    function renderGeneratedSections(sections) {
+      const container = document.getElementById('generated-content');
+      container.innerHTML = '<div class="generated-sections">' +
+        sections.map((s, i) => `
+          <div class="generated-block">
+            <div class="generated-block-header">
+              <span class="generated-block-title">${escapeHtml(s.title)}</span>
+              <div class="generated-block-actions">
+                <button class="btn btn-small btn-outline" onclick="regenerateSection(${i}, '${escapeHtml(s.title)}')">Regenerate</button>
+                <button class="btn btn-small btn-maroon" onclick="copySection(${i})">Copy</button>
+              </div>
+            </div>
+            <textarea id="gen-section-${i}" rows="8">${escapeHtml(s.content)}</textarea>
+          </div>
+        `).join('') + '</div>';
+      document.getElementById('wizard-nav-final').style.display = 'flex';
+    }
+
+    async function regenerateSection(index, title) {
+      const textarea = document.getElementById('gen-section-' + index);
+      const currentContent = textarea.value;
+      textarea.value = 'Regenerating...';
+      textarea.disabled = true;
+
+      const data = getWizardData();
+
+      try {
+        const result = await callAI([
+          { role: 'system', content: `You are a grant writing assistant. Rewrite the following section of a grant application. Make it different from the previous version — try a different angle or emphasis. Keep the same factual details but improve the writing. Write in plain, warm Australian English. Output ONLY the section content, no headers.` },
+          { role: 'user', content: `Section: ${title}\n\nClub: ${data.clubName}, ${data.members} members, ${data.region}\nProject: ${data.projectTitle} — ${data.projectDesc}\nCommunity benefit: ${data.communityBenefit}\n\nPrevious version:\n${currentContent}\n\nPlease write a new version of this section.` }
+        ], 'writing');
+        textarea.value = result.trim();
+      } catch (err) {
+        textarea.value = currentContent;
+        alert('Could not regenerate. Please try again.');
+      }
+      textarea.disabled = false;
+    }
+
+    function copySection(index) {
+      const textarea = document.getElementById('gen-section-' + index);
+      navigator.clipboard.writeText(textarea.value).then(showCopyFeedback);
+    }
+
+    function copyAllSections() {
+      const sections = document.querySelectorAll('.generated-block');
+      let all = '';
+      sections.forEach(block => {
+        const title = block.querySelector('.generated-block-title').textContent;
+        const content = block.querySelector('textarea').value;
+        all += title + '\n\n' + content + '\n\n---\n\n';
+      });
+      navigator.clipboard.writeText(all.trim()).then(showCopyFeedback);
+    }
+
+    /* ============================================================
+       CHAT: Grant Advisor
+    ============================================================ */
+    const ADVISOR_SYSTEM_PROMPT = `You are a friendly, knowledgeable grant advisor for Queensland croquet clubs. You help volunteer committee members understand grants, assess their eligibility, and prepare strong applications.
+
+Key context:
+- You advise clubs affiliated with the Croquet Association of Queensland (CAQ)
+- CAQ has 41 clubs across Queensland
+- Most club committees are volunteers, often aged 55+
+- Clubs are typically small (15–60 members), incorporated associations
+- Common projects: court resurfacing, lighting, clubhouse upgrades, equipment
+
+Available grants and funding sources:
+${buildGrantsContext()}
+
+Guidelines:
+- Write in warm, plain Australian English — no jargon
+- Be specific and practical — give actionable advice
+- If you don't know something, say so honestly
+- Suggest next steps the club can take
+- When discussing grants, mention specific tips from the data above
+- Reference the Southport case study when relevant (they won $35,000 from GCBF for a veranda)
+- Encourage clubs to check deadlines directly with the grant provider
+- Keep responses focused — 2–4 paragraphs maximum unless asked for more detail`;
+
+    function sendStarterMessage(btn) {
+      const text = btn.textContent;
+      document.getElementById('chat-starters').style.display = 'none';
+      appendChatMessage('user', text);
+      chatHistory.push({ role: 'user', content: text });
+      getAdvisorResponse();
+    }
+
+    function sendChatMessage() {
+      const input = document.getElementById('chat-input');
+      const text = input.value.trim();
+      if (!text || isGenerating) return;
+
+      input.value = '';
+      document.getElementById('chat-starters').style.display = 'none';
+      appendChatMessage('user', text);
+      chatHistory.push({ role: 'user', content: text });
+      getAdvisorResponse();
+    }
+
+    async function getAdvisorResponse() {
+      isGenerating = true;
+      document.getElementById('btn-send').disabled = true;
+
+      const thinkingId = appendChatMessage('assistant', 'Thinking...');
+
+      try {
+        const messages = [
+          { role: 'system', content: ADVISOR_SYSTEM_PROMPT },
+          ...chatHistory
+        ];
+
+        const result = await callAI(messages, 'chat');
+        chatHistory.push({ role: 'assistant', content: result });
+        updateChatMessage(thinkingId, result);
+      } catch (err) {
+        updateChatMessage(thinkingId, 'Sorry, I had trouble connecting. Please try again in a moment.');
+      }
+
+      isGenerating = false;
+      document.getElementById('btn-send').disabled = false;
+    }
+
+    function appendChatMessage(role, text) {
+      const container = document.getElementById('chat-messages');
+      const id = 'msg-' + Date.now();
+      const avatar = role === 'user' ? 'You' : 'AI';
+      container.innerHTML += `
+        <div class="chat-message ${role}" id="${id}">
+          <div class="chat-message-avatar">${avatar}</div>
+          <div class="chat-message-body">${formatChatText(text)}</div>
+        </div>`;
+      container.scrollTop = container.scrollHeight;
+      return id;
+    }
+
+    function updateChatMessage(id, text) {
+      const msg = document.getElementById(id);
+      if (msg) {
+        msg.querySelector('.chat-message-body').innerHTML = formatChatText(text);
+        document.getElementById('chat-messages').scrollTop =
+          document.getElementById('chat-messages').scrollHeight;
+      }
+    }
+
+    function formatChatText(text) {
+      return escapeHtml(text)
+        .replace(/\n\n/g, '</p><p>')
+        .replace(/\n/g, '<br>')
+        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+        .replace(/^/, '<p>') + '</p>';
+    }
+
+    /* ============================================================
+       BOOT
+    ============================================================ */
+    init();
+  </script>
+</body>
+</html>
